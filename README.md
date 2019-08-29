@@ -1,14 +1,10 @@
-+++
-title = "Midgard-React"
-+++
-
-# Midgard-React
+# Buildy-UI-React
 
 ## Summary
 
-Midgard-React is a [React](https://reactjs.org/) web app that implements the core features of [Midgard](https://docs.walhall.io/walhall/midgard).
+Buildy-UI-React is a [React](https://reactjs.org/) web app that implements the core features of [Midgard](https://docs.walhall.io/walhall/midgard).
 
-Midgard-React is your **app root repository.** When you create a [Walhall app](https://docs.walhall.io/walhall), Walhall forks Midgard-React to your GitHub account and gives it the same name as your app. It comes pre-configured to communicate with your app's API via [BiFrost](https://docs.walhall.io/walhall/bifrost). This is where you develop your Walhall app.
+Buildy-UI-React is your **app root repository.** When you create a Buildy app, the UI and admin for it is imported with either React or Angular frameworks and adds Buildy-UI-React to your GitHub account and gives it the same name as your app. It comes pre-configured to communicate with your app's API via [Buildy](https://buildly.io). This is where you develop your Walhall app.
 
 Current React version: **v0.0.1.**
 
