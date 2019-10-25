@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { FjButton, FjTable, FjContentSwitcher, FjMenu, FjToggle, FjInlineEditor } from 'freyja-react'
+import { FjButton, FjTable, FjContentSwitcher, FjMenu, FjToggle, FjInlineEditor } from '@buildlyio/freyja-react'
 import Crud, { CrudContext } from 'midgard/modules/crud/Crud';
 
 const UserGroupsWrapper = styled.div`

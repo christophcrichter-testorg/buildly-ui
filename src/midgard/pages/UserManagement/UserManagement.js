@@ -3,11 +3,11 @@ import { connect } from 'react-redux'
 import { colors } from 'colors'
 import styled from 'styled-components'
 import { rem } from 'polished'
-import { FjButton, FjInputField } from 'freyja-react'
+import { FjButton, FjInputField } from '@buildlyio/freyja-react'
 import InviteForm from 'midgard/components/InviteForm/InviteForm'
 import { invite } from 'midgard/redux/authuser/actions/authuser.actions'
 import { useInput } from "midgard/hooks/useInput";
-import { FjContentSwitcher } from "freyja-react"
+import { FjContentSwitcher } from '@buildlyio/freyja-react'
 import Popup from 'reactjs-popup'
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 import Users from "./Users/Users";
