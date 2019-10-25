@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { FjMenu } from 'freyja-react'
+import { FjMenu } from '@buildlyio/freyja-react'
 import { connect } from 'react-redux'
 import { logout } from 'midgard/redux/authuser/actions/authuser.actions'
 import NavItem from 'midgard/components/NavItem/NavItem'

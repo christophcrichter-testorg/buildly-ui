@@ -6,7 +6,7 @@ import styled, { css } from 'styled-components'
 import { rem } from 'polished'
 import { AppContext } from 'midgard/context/App.context'
 import { SubNavContext } from 'midgard/context/SubNav.context'
-import { FjContentSwitcher } from 'freyja-react'
+import { FjContentSwitcher } from '@buildlyio/freyja-react'
 
 const topBarHeight = rem(60);
 const searchSize = rem(32);
