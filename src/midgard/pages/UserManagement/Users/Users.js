@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { FjButton, FjTable, FjContentSwitcher, FjMenu } from 'freyja-react'
+import { FjButton, FjTable, FjContentSwitcher, FjMenu } from '@buildlyio/freyja-react'
 import Crud, { CrudContext } from 'midgard/modules/crud/Crud';
 import { getCoreGroups } from 'midgard/redux/coregroup/actions/coregroup.actions'
 import { connect } from 'react-redux'
@@ -39,9 +39,12 @@ function Users({ location, history, data, dispatch }) {
         size="small"
         options={permissions}
         disabled={!row.is_active}
+        buttonsPerRow={3}
+        allowMultiple={true}
+        requireOne={false}
         active={
-          [row.core_groups[0] && row.core_groups[0].id || row.core_groups[0], (item) => {
-            crud.updateItem({id: row.id, core_groups: [item]})
+          [row.core_groups.map(role => role.id || role), (items) => {
+            crud.updateItem({id: row.id, core_groups: items})
           }]}/>
     }
   }
@@ -98,7 +101,7 @@ function Users({ location, history, data, dispatch }) {
               { label: 'Full name', prop: 'name', template: (row) => {return <b style={!row.is_active? {'color': '#aaa'}: null}>{row.first_name} {row.last_name}</b>}, flex: '1' },
               { label: 'Email', prop: 'email', flex: '2', template: (row) => {return <span style={!row.is_active? {'color': '#aaa'}: null}> {row.email} </span>}},
               { label: 'Last activity', prop: 'activity', template: (row) => {return <small style={{'color': '#aaa'}}>Today</small>}, flex: '1' },
-              { label: 'Permissions', prop: 'permission', template: (row) => permissionsTemplate(row,crud), flex: '2' },
+              { label: 'Permissions', prop: 'permission', template: (row) => permissionsTemplate(row, crud), flex: '3' },
               { label: 'Actions', prop: 'options', template: (row) => actionsTemplate(row, crud), flex: '1' },
             ]}
             rows={crud.getData()}

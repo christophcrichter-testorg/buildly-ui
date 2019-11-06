@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import { colors } from 'colors'
 import { rem } from 'polished'
-import { FjInlineEditor, FjMenu, FjButton, FjCard } from 'freyja-react'
+import { FjInlineEditor, FjMenu, FjButton, FjCard } from '@buildlyio/freyja-react'
 import defaultLogo from 'assets/midgard-logo.svg'
 
 const CardItemWrapper = styled.div`

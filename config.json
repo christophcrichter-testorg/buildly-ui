@@ -1,4 +1,4 @@
 {
   "appTitle": "My App",
-  "modules": []
+  "modules": [{"id:": "products", "title": "Products", "url": "https://github.com/buildlyio/buildly-ui-react.git"}]
 }

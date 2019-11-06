@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { FjButton, FjInlineEditor } from 'freyja-react'
+import { FjButton, FjInlineEditor } from '@buildlyio/freyja-react'
 import TextField from 'midgard/components/TextField/TextField'
 import { colors } from 'colors'
 import styled from 'styled-components'
