@@ -36,10 +36,10 @@ function Users({ location, history, data, dispatch }) {
   const permissionsTemplate = (row, crud) => {
     if (coreGroupsLoaded) {
       return <FjContentSwitcher
-        size="small"
+        size="micro"
         options={permissions}
         disabled={!row.is_active}
-        buttonsPerRow={3}
+        buttonsPerRow={5}
         allowMultiple={true}
         requireOne={false}
         active={
