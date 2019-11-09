@@ -40,7 +40,6 @@ const ModuleManagementContainer = styled.div`
  * Outputs the user management page.
  */
 function LogicModuleManagement({ history, data, dispatch }) {
-  // state to toggle actions menus
   const [logicModulesLoaded, setLogicModulesLoaded] = useState(false);
 
   useEffect(() => {
@@ -51,14 +50,17 @@ function LogicModuleManagement({ history, data, dispatch }) {
     }
   }, [data]);
 
+  /** Create logicmodule request */
   const handleCreate = (logicmodule) => {
     dispatch(createLogicModule(logicmodule));
   };
 
+  /** Update logicmodule request */
   const handleUpdate = (logicmodule) => {
     dispatch(updateLogicModule(logicmodule));
   };
 
+  /** Delete logicmodule request */
   const handleDelete = (logicmodule) => {
     dispatch(deleteLogicModule(logicmodule));
   };
