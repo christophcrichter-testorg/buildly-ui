@@ -24,7 +24,7 @@ const CardRow = styled.div`
 `;
 
 /**
- * Generic card layout for midgard client items.
+ * Generic card layout for logic module.
  */
 function LogicModule({ logicmodule, updateModule, deleteModule }) {
 
