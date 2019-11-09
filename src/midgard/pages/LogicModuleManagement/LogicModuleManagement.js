@@ -61,6 +61,7 @@ function LogicModuleManagement({ location, history, data, dispatch }) {
   const [logicModulesLoaded, setLogicModulesLoaded] = useState(false);
 
   useEffect(() => {
+    history.push(`/app/admin/logic-modules`);
     if (!logicModulesLoaded) {
       dispatch(loadLogicModuleData());
       setLogicModulesLoaded(true);
