@@ -1,62 +1,45 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { colors } from 'colors'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { rem } from 'polished'
-import { loadLogicModuleData } from 'midgard/redux/logicmodule/logicmodule.actions'
-import { NotificationContainer } from 'react-notifications';
+import { loadLogicModuleData, createLogicModule, updateLogicModule, deleteLogicModule } from 'midgard/redux/logicmodule/logicmodule.actions'
+import { FjButton } from '@buildlyio/freyja-react'
+import LogicModule from 'midgard/components/LogicModule/LogicModule';
+import { NewLogicModuleForm } from '../../components/NewLogicModuleForm/NewLogicModuleForm'
+import Popup from 'reactjs-popup'
 
-/**
- * Styled component for the user management page.
- */
-const LogicModuleManagementWrapper = styled.div`
+const ModuleManagementWrapper = styled.div`
   height: 100%;
-  display: flex;
-  flex: 1;
   background-color: ${colors.baseLighter};
-  .invite_button {
-    border: ${rem(1)} solid ${colors.primary};
-    color: ${colors.white};
-  }
-  .admin {
-    &__container {
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-      align-items: flex-start;
-      margin: 0 ${rem(24)};
-    }
-    &__header {
-      display: flex;
-      align-items: center;
-      margin-bottom: ${rem(30)};
-      &__name {
-        padding-right: ${rem(12)};
-      }   
-    }
-    &__users {
-      width: 100%;
-    }
-  }
-  
-  .content-switcher {
-    margin-top: ${rem(-22)};
-    &__container {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-content: center;
-      border-top: 1px solid #e1e1e1;
-      margin-bottom: ${rem(30)};
-    }   
-  }
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: flex-start;
+  margin: 0 ${rem(24)};
+`;
+
+const ModuleManagementHeader = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: ${rem(30)};
+`;
+
+const ModuleManagementHeading = styled.h3`
+  padding-right: ${rem(12)};
+`;
+
+const ModuleManagementContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 `;
 
 
 /**
  * Outputs the user management page.
  */
-function LogicModuleManagement({ location, history, data, dispatch }) {
+function LogicModuleManagement({ history, data, dispatch }) {
   // state to toggle actions menus
   const [logicModulesLoaded, setLogicModulesLoaded] = useState(false);
 
@@ -68,16 +51,40 @@ function LogicModuleManagement({ location, history, data, dispatch }) {
     }
   }, [data]);
 
+  const handleCreate = (logicmodule) => {
+    dispatch(createLogicModule(logicmodule));
+  };
+
+  const handleUpdate = (logicmodule) => {
+    dispatch(updateLogicModule(logicmodule));
+  };
+
+  const handleDelete = (logicmodule) => {
+    dispatch(deleteLogicModule(logicmodule));
+  };
+
+  const logicmodules = data.map(logicmodule => <LogicModule key={logicmodule.id} logicmodule={logicmodule} updateModule={handleUpdate} deleteModule={handleDelete} />);
 
   return (
-    <LogicModuleManagementWrapper className="admin">
-      <div className="admin__container">
-        <div className="admin__header">
-          <h3 className="admin__header__name">Manage modules</h3>
-        </div>
-      </div>
-      <NotificationContainer />
-    </LogicModuleManagementWrapper>
+    <ModuleManagementWrapper>
+      <ModuleManagementHeader>
+        <ModuleManagementHeading>List of logic modules</ModuleManagementHeading>
+        <Popup
+          trigger={<FjButton size="small">Add</FjButton>}
+          position="bottom right"
+          on="click"
+          closeOnDocumentClick
+          mouseLeaveDelay={300}
+          mouseEnterDelay={0}
+          contentStyle={{ padding: '0px', border: 'none', width: `{rem(350)}` }}
+          arrow={false}>
+          <NewLogicModuleForm action={handleCreate} />
+        </Popup>
+      </ModuleManagementHeader>
+      <ModuleManagementContainer>
+        {logicmodules}
+      </ModuleManagementContainer>
+    </ModuleManagementWrapper>
   )
 }
 

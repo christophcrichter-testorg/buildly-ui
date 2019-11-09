@@ -86,11 +86,11 @@ export const deleteOne = (state, action, idProp: string, dataProp?: string) => {
   const dataObj = {};
   let dataArr = [];
   if (dataProp) {
-    dataArr = state.data[dataProp].filter (item => item[idProp] !== action.data[idProp]);
+    dataArr = state.data[dataProp].filter(item => item[idProp] !== action.data[idProp]);
     dataObj[dataProp] = dataArr;
     return {...state, data: dataObj , deleted: true};
   } else {
-    dataArr = state.data.filter (item => item[idProp] !== action.data[idProp]);
+    dataArr = state.data.filter(item => item[idProp] !== action.data[idProp]);
     return {...state, data: dataArr, deleted: true};
   }
 };

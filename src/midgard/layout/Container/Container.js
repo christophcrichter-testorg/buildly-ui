@@ -57,7 +57,7 @@ function Container({ location, history }) {
   } else if (location.pathname.includes('admin')) {
     subNavItems = [
       { label: 'User management', value: 'admin/users' },
-      { label: 'Logic modules', value: 'admin/logic-modules' },
+      { label: 'Module management', value: 'admin/logic-modules' },
     ];
   }
 

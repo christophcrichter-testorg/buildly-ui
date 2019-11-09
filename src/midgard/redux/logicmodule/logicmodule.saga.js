@@ -57,7 +57,7 @@ function* deleteLogicModule(action) {
   try {
     const res = yield call(httpService.makeRequest, 'delete', `${endpoint}${action.data.id}/`,  {}, true);
     yield [
-      yield put({ type: DELETE_LOGICMODULE_COMMIT, data: res.data})
+      yield put({ type: DELETE_LOGICMODULE_COMMIT, data: action.data})
     ];
   } catch(error) {
     yield put({ type: DELETE_LOGICMODULE_FAIL, error });
