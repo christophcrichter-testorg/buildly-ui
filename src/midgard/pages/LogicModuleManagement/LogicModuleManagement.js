@@ -37,7 +37,7 @@ const ModuleManagementContainer = styled.div`
 
 
 /**
- * Outputs the user management page.
+ * Outputs the module management page.
  */
 function LogicModuleManagement({ history, data, dispatch }) {
   const [logicModulesLoaded, setLogicModulesLoaded] = useState(false);
