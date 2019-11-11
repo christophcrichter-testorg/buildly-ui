@@ -60,33 +60,31 @@ const UserManagementWrapper = styled.div`
   }
 `;
 
-/**
- * The current oauth user.
- */
-let currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
 /**
  * Outputs the user management page.
  */
 function UserManagement({dispatch, loading, error, user, history, location}) {
   const email = useInput('', { required: true });
-  const [inviteCall, setinviteCall] = useState(false);
+  const [inviteCall, setInviteCall] = useState(false);
   const subNav = [
     { label: 'Current users', value: 'current-users' },
     { label: 'User groups', value: 'groups' },
   ];
-  let viewState = useState('current-users');
+  const pathName = '/app/admin/users';
+  const childPath = location.pathname.includes('groups') ? 'groups' : 'current-users';
+  let viewState = useState(childPath);
   const [view, setView] = viewState;
 
   // this will be triggered whenever the content switcher is clicked to change the view
   useEffect(() => {
-    history.push(`/app/admin/users/${view || location.state}`);
+    history.push(`${pathName}/${view || location.state}`);
   }, [view]);
 
 
   if (user && user.data && user.data.detail && inviteCall && !error) {
     NotificationManager.success(user.data.detail, 'Success');
-    setinviteCall(false);
+    setInviteCall(false);
   }
 
 
@@ -95,7 +93,7 @@ function UserManagement({dispatch, loading, error, user, history, location}) {
     const inviteFormValue = {
       emails: [email.value],
     };
-    setinviteCall(true);
+    setInviteCall(true);
     dispatch(invite(inviteFormValue));
   };
 
@@ -139,8 +137,11 @@ function UserManagement({dispatch, loading, error, user, history, location}) {
             <FjContentSwitcher size="small" active={viewState} options={subNav} />
           </div>
         </div>
-        <Route path="/app/admin/users/current-users" component={Users} />
-        <Route path="/app/admin/users/groups" component={UserGroups} />
+        <Route exact path={pathName} render={() => (
+          <Redirect to={`${pathName}/current-users`} />
+        )} />
+        <Route path={`${pathName}/current-users`} component={Users} />
+        <Route path={`${pathName}/groups`} component={UserGroups} />
       </div>
       <NotificationContainer />
     </UserManagementWrapper>
