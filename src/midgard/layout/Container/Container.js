@@ -1,6 +1,3 @@
-import Products from 'clients/Products/src/Products'; 
-import Documents from 'clients/Documents/src/Documents'; 
-import Blueprint from 'clients/Blueprint/src/Blueprint'; 
 // react library imports
 import React, { useState } from 'react'
 import { Route, Redirect } from 'react-router-dom'
@@ -12,6 +9,7 @@ import NavBar from 'midgard/layout/NavBar/NavBar'
 import TopBar from 'midgard/layout/TopBar/TopBar'
 import Profile from 'midgard/pages/Profile/Profile'
 import UserManagement from 'midgard/pages/UserManagement/UserManagement'
+import LogicModuleManagement from 'midgard/pages/LogicModuleManagement/LogicModuleManagement'
 
 import { user, UserContext } from 'midgard/context/User.context'
 import { subNav, SubNavContext } from 'midgard/context/SubNav.context'
@@ -49,14 +47,18 @@ function Container({ location, history }) {
   const [navHidden, setNavHidden] = useState(false);
   const routeItems = [];
     //entryPointForGulpStart
-    routeItems.push(<Route key="products" path="/app/products/" component={Products} />);
-    routeItems.push(<Route key="documents" path="/app/documents/" component={Documents} />);
-    routeItems.push(<Route key="blueprint" path="/app/blueprint/" component={Blueprint} />);
     //entryPointForGulpEnd
 
   let subNavItems = subNav;
   if (location.pathname.includes('profile')) {
-    subNavItems = [{ label: 'Profile settings', value: 'profile/settings' }, { label: 'User management', value: 'profile/users/current-users' }];
+    subNavItems = [
+      { label: 'Profile settings', value: 'profile/settings' },
+    ];
+  } else if (location.pathname.includes('admin')) {
+    subNavItems = [
+      { label: 'User management', value: 'admin/users' },
+      { label: 'Module management', value: 'admin/logic-modules' },
+    ];
   }
 
   return (
@@ -75,8 +77,12 @@ function Container({ location, history }) {
               <Route exact path="/app/profile" render={() => (
                 <Redirect to="/app/profile/settings"/>
               )} />
+              <Route exact path="/app/admin" render={() => (
+                <Redirect to="/app/admin/users"/>
+              )} />
               <Route path="/app/profile/settings" component={Profile} />
-              <Route path="/app/profile/users" component={UserManagement} />
+              <Route path="/app/admin/users" component={UserManagement} />
+              <Route path="/app/admin/logic-modules" component={LogicModuleManagement} />
               {routeItems}
             </div>
           </div>

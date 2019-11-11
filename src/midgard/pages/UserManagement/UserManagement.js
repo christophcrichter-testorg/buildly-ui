@@ -80,7 +80,7 @@ function UserManagement({dispatch, loading, error, user, history, location}) {
 
   // this will be triggered whenever the content switcher is clicked to change the view
   useEffect(() => {
-    history.push(`/app/profile/users/${view || location.state}`);
+    history.push(`/app/admin/users/${view || location.state}`);
   }, [view]);
 
 
@@ -139,8 +139,8 @@ function UserManagement({dispatch, loading, error, user, history, location}) {
             <FjContentSwitcher size="small" active={viewState} options={subNav} />
           </div>
         </div>
-        <Route path="/app/profile/users/current-users" component={Users} />
-        <Route path="/app/profile/users/groups" component={UserGroups} />
+        <Route path="/app/admin/users/current-users" component={Users} />
+        <Route path="/app/admin/users/groups" component={UserGroups} />
       </div>
       <NotificationContainer />
     </UserManagementWrapper>

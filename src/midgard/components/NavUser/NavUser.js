@@ -26,6 +26,7 @@ export function NavUser({location, history, dispatch}) {
   const [open, setOpen] = useState(false);
   const menuItems = [
     { value: 'profile', label: 'Profile settings' },
+    { value: 'admin', label: 'Admin settings' },
     { value: 'logout', label: 'Logout' }
   ];
 
@@ -34,6 +35,14 @@ export function NavUser({location, history, dispatch}) {
    */
   const openProfile = () => {
     const { from } = location.state || { from: { pathname: '/app/profile/settings' } };
+    history.push(from);
+  }
+
+  /**
+   * Navigates to the admin screen.
+   */
+  const gotoAdmin = () => {
+    const { from } = location.state || { from: { pathname: '/app/admin/users' } };
     history.push(from);
   }
 
@@ -54,6 +63,8 @@ export function NavUser({location, history, dispatch}) {
     switch(action) {
       case 'profile':
         return openProfile();
+      case 'admin':
+        return gotoAdmin();
       case 'logout':
         return userLogout();
       default:
