@@ -1,8 +1,10 @@
 ## Purpose
-_Describe the problem or feature_
+_Short description of the problem or feature_
 
-## Further info
-_Other important information related to the ticket_
+## Approach
+_How does this change address the problem?_
 
-## Ticket number
-_PLAT-999_
+### Further Info
+Ticket number: #000
+ 
+@mentions of the person or team responsible for reviewing proposed changes.
