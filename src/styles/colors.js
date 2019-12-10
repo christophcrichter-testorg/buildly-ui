@@ -1,6 +1,6 @@
 import { darken, lighten, rgba } from 'polished'
 
-const themeColors = {
+const lightTheme = {
   primary: '#0573db',
   base: '#ECEFF3',
   danger: '#DD0000',
@@ -22,7 +22,7 @@ const colorVariations = {
   overlayHover: 0.5,
 };
 
-export const colors = {
+const setTheme = (themeColors) => ({
   ...makeVariations('primary', themeColors.primary, true),
   ...makeVariations('base', themeColors.base),
   ...makeVariations('danger', themeColors.danger, true),
@@ -34,7 +34,9 @@ export const colors = {
   text: themeColors.text,
   lightText: themeColors.lightText,
   shadow: rgba(themeColors.black, 0.12)
-};
+});
+
+export const colors = setTheme(lightTheme);
 
 function makeVariations(name, color, overlay = false) {
   const variations = {};
