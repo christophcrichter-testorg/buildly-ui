@@ -41,6 +41,6 @@ function AdminPanel({ match }) {
   )
 }
 
-const mapStateToProps = (state, ownProps) => ({...ownProps, ...state.authReducer, ...state.match});
+const mapStateToProps = (state, ownProps) => ({...ownProps, ...state.match});
 
 export default withRouter(connect(mapStateToProps)(AdminPanel));

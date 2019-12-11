@@ -116,9 +116,14 @@ function EndpointMain({ endpoint, swaggerObj, match }) {
   return (
     <EndpointMainWrapper>
       <EndpointMainContainer>
+        {!swaggerObj && (
+          <div className="endpoint-main__spinner">
+            Please wait
+          </div>
+        )}
         {listView && swaggerObj && (
           <EndpointEntries
-            class="endpoint-main__entries"
+            className="endpoint-main__entries"
             definitions={definitions}
             paths={paths}
             crudInputs={crudInputs}
@@ -126,14 +131,14 @@ function EndpointMain({ endpoint, swaggerObj, match }) {
         )}
         {!listView && swaggerObj && (
           <EndpointForm
-            class="endpoint-main__form"
+            className="endpoint-main__form"
             definitions={definitions}
             crudInputs={crudInputs}
             currentItemId={currentItemId}
             endpointTitle={endpoint} />
         )}
         <EndpointPaths
-          class="endpoint-main__paths"
+          className="endpoint-main__paths"
           definitions={definitions}
           paths={paths} />
       </EndpointMainContainer>

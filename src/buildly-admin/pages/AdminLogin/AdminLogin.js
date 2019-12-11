@@ -16,7 +16,7 @@ function AdminLogin({dispatch, loading}) {
 
   const registerLink = { label: 'Register', value: '/register' };
   if (oauthService.hasValidAccessToken()) {
-    return <Redirect push to="/admin-panel/coregroup" />;
+    return <Redirect push to="/admin-panel/coregroups" />;
   }
 
   /**

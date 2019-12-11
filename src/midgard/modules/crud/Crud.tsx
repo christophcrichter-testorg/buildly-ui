@@ -1,6 +1,5 @@
 import * as React from "react";
 import { connect } from 'react-redux'
-import { FjButton, FjInputField } from '@buildlyio/freyja-react'
 import { crudCreate, crudDelete, crudLoadData, crudUpdate } from './redux/crud.actions';
 
 export interface CrudProps {
@@ -85,10 +84,10 @@ export class Crud extends React.Component<CrudProps, CrudState> {
   * @param item - selected item
   */
   public updateItem = (item) => {
-      const {updateAction, itemUpdated, dispatch, endPoint} = this.props;
-      if (endPoint) {
-          dispatch(crudUpdate(item.data, endPoint, item.idProp, item.dataProp));
-      }
+    const {updateAction, itemUpdated, dispatch, endPoint} = this.props;
+    if (endPoint) {
+        dispatch(crudUpdate(item.data, endPoint, item.idProp, item.dataProp));
+    }
     else if (updateAction) {
       dispatch({type: updateAction, data: item});
       return itemUpdated
@@ -101,9 +100,9 @@ export class Crud extends React.Component<CrudProps, CrudState> {
   */
   public deleteItem = (item) => {
     const {deleteAction, itemDeleted, dispatch, endPoint} = this.props;
-      if (endPoint) {
-          dispatch(crudDelete(item.data, endPoint, item.idProp, item.dataProp));
-      }
+    if (endPoint) {
+        dispatch(crudDelete(item.data, endPoint, item.idProp, item.dataProp));
+    }
     else if (deleteAction) {
       dispatch({type: deleteAction, data: item});
       return itemDeleted
@@ -116,35 +115,36 @@ export class Crud extends React.Component<CrudProps, CrudState> {
   public loadData = () => {
     const {loadAction, data, dispatch, endPoint} = this.props;
     if (endPoint) {
-        dispatch(crudLoadData(endPoint, null,null));
+      dispatch(crudLoadData(endPoint, null,null));
     }
     else if (loadAction && !this.state.dataLoaded) {
       dispatch({type: loadAction});
     }
-      this.setState({
-          dataLoaded: true
-      });
-      return data;
+    this.setState({
+      dataLoaded: true
+    });
+    return data;
   };
+
   /**
    * gets the data from the store
    */
   public getData = () => {
-      const { data, endPoint} = this.props;
-      if (endPoint && this.props[endPoint]) {
-        return this.props[endPoint].data;
-      }
-    return data
+    const { data, endPoint} = this.props;
+    if (endPoint && this.props[endPoint]) {
+      return this.props[endPoint].data;
+    }
+    return data || [];
   };
 
   render() {
     const {children} = this.props;
     return children({
-        createItem: this.createItem,
-        updateItem: this.updateItem,
-        deleteItem: this.deleteItem,
-        loadData: this.loadData,
-        getData: this.getData
+      createItem: this.createItem,
+      updateItem: this.updateItem,
+      deleteItem: this.deleteItem,
+      loadData: this.loadData,
+      getData: this.getData
     })
   };
 }

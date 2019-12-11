@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import './styles.scss';
 import 'react-notifications/lib/notifications.css';
 import { hot } from 'react-hot-loader';
@@ -9,6 +9,9 @@ import { app, AppContext } from './midgard/context/App.context';
 import Container from './midgard/layout/Container/Container';
 import Login from './midgard/pages/Login/Login';
 import Register from './midgard/pages/Register/Register';
+import AdminLogin from './buildly-admin/pages/AdminLogin/AdminLogin';
+import AdminPanel from './buildly-admin/pages/AdminPanel/AdminPanel';
+
 
 function App() {
   return(
@@ -24,6 +27,8 @@ function App() {
           )}/>
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
+          <Route path="/admin-login" component={AdminLogin} />
+          <PrivateRoute path="/admin-panel/:endpoint" component={AdminPanel} />
           <PrivateRoute path="/app" component={Container} />
         </div>
       </AppContext.Provider>
