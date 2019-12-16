@@ -1,4 +1,5 @@
 # Buildy UI
+[![Build Status](https://travis-ci.org/buildlyio/buildly-ui-react.svg?branch=master)](https://travis-ci.org/buildlyio/buildly-ui-react) [![Documentation Status](https://readthedocs.org/projects/buildly-ui/badge/?version=latest)](https://buildly-ui.readthedocs.io/en/latest/?badge=latest) [![Gitter](https://badges.gitter.im/Buildlyio/community.svg)](https://gitter.im/Buildlyio/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 Buildy UI is a [React](https://reactjs.org/) web application that implements the core features of the UI core and the Buildly Core Administrator (https://github.com/buildlyio/buildly-core).
 
