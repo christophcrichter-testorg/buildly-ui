@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
-import { FjButton, FjTable } from '@buildlyio/freyja-react'
+import { FjButton, FjTable, FjMenu } from '@buildlyio/freyja-react'
 import { Redirect } from 'react-router-dom';
 import { Crud } from '../../../midgard/modules/crud/Crud';
 import crudDataReducer from '../../../midgard/modules/crud/redux/crud.reducer';
 
 
-function EndpointEntries({ definitions, crudInputs, paths, endpointTitle, dispatch, data }) {
+function EndpointEntries({ definitions, crudInputs, paths, endpointTitle, dispatch, data, loaded }) {
   const [tableOptions, setTableOptions] = useState({ columns: [] });
   const [filterValue, setFilterValue] = useState(null);
+  const [menuState, setMenuState] = useState({opened: false, id: ''});
   const dropdownOptions = [
-    {label: '•••', value: '•••'},
     {label: 'Delete', value: 'delete'}
   ];
 
@@ -23,7 +23,7 @@ function EndpointEntries({ definitions, crudInputs, paths, endpointTitle, dispat
       let requiredColumns;
       // add first 2 properties to the table columns
       const propertiesColumns = Object.keys(definitions.properties).slice(0, 2).map(field => {
-        return {name: field, prop: field, flex: 2, sortable: true};
+        return { name: field, prop: field, flex: 2, sortable: true };
       });
       // add required fields to the columns array
       if (definitions.required) {
@@ -31,6 +31,7 @@ function EndpointEntries({ definitions, crudInputs, paths, endpointTitle, dispat
           return {name: field, prop: field, flex: 2, sortable: true};
         });
         columns = [...propertiesColumns, ...requiredColumns].filter((value, index, self) => {
+          console.log(value, index, self)
           return self.indexOf(value) === index;
         }); // get unique columns
       } else {
@@ -39,17 +40,6 @@ function EndpointEntries({ definitions, crudInputs, paths, endpointTitle, dispat
       setTableOptions({ columns });
     }
   }, [definitions]);
-
-  /**
-   * function that it is triggered to handle actions of the dropdown
-   * @param action - the action that has been chosen
-   * @param row - the row where the action is triggered
-   */
-  const dropdownActionTriggered = (row, action) => {
-    if (action === 'delete') {
-      crud.deleteItem(row);
-    }
-  }
 
   /**
    * navigates to the form view of the selected item
@@ -63,8 +53,25 @@ function EndpointEntries({ definitions, crudInputs, paths, endpointTitle, dispat
     }
   }
 
-  const templateTemplate = (row, crud) =>{
-    return row.name;
+  /**
+   * template for actions column
+   * @param row current row
+   * @param crud crud object
+   */
+  const actionsTemplate = (row, crud) => {
+    return <FjMenu
+      menuItems={dropdownOptions}
+      xPosition="right"
+      yPosition="down"
+      open={menuState.id === row.id ? menuState.opened: null}
+      setOpen={() => setMenuState({opened: !menuState.opened, id: row.id})}
+      onActionClicked={(action) => {
+        if (action === 'delete') {
+          return crud.deleteItem(row);
+        }
+      }}>
+      <FjButton variant="secondary" size="small" onClick={() => setMenuState({opened: !menuState.opened, id: row.id})}>•••</FjButton>
+    </FjMenu>
   };
 
   return (
@@ -92,10 +99,15 @@ function EndpointEntries({ definitions, crudInputs, paths, endpointTitle, dispat
               dispatch={dispatch}>
               {crud => {
                 return (
-                  <FjTable
-                    columns={tableOptions.columns}
-                    rows={[...crud.getData()]}
-                  />
+                  loaded ? (
+                    <FjTable
+                      columns={[
+                        ...tableOptions.columns,
+                        { label: 'Actions', prop: 'options', template: (row) => actionsTemplate(row, crud), flex: '1' },
+                      ]}
+                      rows={crud.getData()}
+                    />
+                  ) : <div />
                 )
               }}
             </Crud>

@@ -1,4 +1,4 @@
 {
   "appTitle": "My App",
-  "modules": []
+  "modules": [{"id":"products","name":"Products","description":"Inventory of items","url":"https://github.com/andrewshortall/product_client_react.git"}]
 }
