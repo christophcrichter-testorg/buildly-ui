@@ -31,7 +31,6 @@ function EndpointEntries({ definitions, crudInputs, paths, endpointTitle, dispat
           return {name: field, prop: field, flex: 2, sortable: true};
         });
         columns = [...propertiesColumns, ...requiredColumns].filter((value, index, self) => {
-          console.log(value, index, self)
           return self.indexOf(value) === index;
         }); // get unique columns
       } else {
@@ -39,7 +38,7 @@ function EndpointEntries({ definitions, crudInputs, paths, endpointTitle, dispat
       }
       setTableOptions({ columns });
     }
-  }, [definitions]);
+  }, [definitions, loaded]);
 
   /**
    * navigates to the form view of the selected item

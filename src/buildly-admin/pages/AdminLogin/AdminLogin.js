@@ -49,7 +49,7 @@ function AdminLogin({dispatch, loading}) {
       <FjButton
         disabled={loading}
         type="submit">
-        Login
+        Admin login
       </FjButton>
     </AuthForm>
   )

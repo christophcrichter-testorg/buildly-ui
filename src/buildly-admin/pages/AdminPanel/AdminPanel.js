@@ -9,7 +9,8 @@ import { withRouter } from 'react-router'
 /**
  * Outputs the admin landing page.
  */
-function AdminPanel({ match }) {
+function AdminPanel({ match, location, history }) {
+  const navHiddenState = useState(null);
   const [swaggerObj, setSwaggerObj] = useState(null);
   const [currentEndpoint, setCurrentEndpoint] = useState(null);
 
@@ -35,7 +36,7 @@ function AdminPanel({ match }) {
 
   return (
     <React.Fragment>
-      <NavBarAdmin swaggerObj={swaggerObj} />
+      <NavBarAdmin swaggerObj={swaggerObj} navHiddenState={navHiddenState} location={location} history={history} />
       <EndpointMain endpoint={currentEndpoint} swaggerObj={swaggerObj} match={match} />
     </React.Fragment>
   )

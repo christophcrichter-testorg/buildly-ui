@@ -58,6 +58,7 @@ function EndpointMain({ endpoint, swaggerObj, match }) {
   const [definitions, setDefinitions] = useState({});
   const [listView, setListView] = useState(true);
   const [definitionKey, setDefinitionKey] = useState(null);
+  const [loadingPaths, setLoadingPaths] = useState(false);
 
   useEffect(() => {
     if (match.params.id) {
@@ -74,7 +75,7 @@ function EndpointMain({ endpoint, swaggerObj, match }) {
       setPaths(null);
       setCrudInputs({});
       const httpVerbs = ['get', 'put', 'post', 'delete', 'patch']; // get the available operations for the current endpoint
-      const paths = Object.entries(swaggerObj.paths).filter(path => {
+      const objPaths = Object.entries(swaggerObj.paths).filter(path => {
         const pathSegments = path[0].split('/'); // split the path url to segments
         if (!pathSegments[2] || pathSegments[2].length === 0) {
           return pathSegments[1].includes(endpoint); // take the first path segemnt if there is no second segment
@@ -91,10 +92,13 @@ function EndpointMain({ endpoint, swaggerObj, match }) {
         path.push(httpMethods);
         return path;
       });
-      setPaths(paths);
-      setCrudInputs({...crudInputs, endpoint: paths[0][0]});
+      setPaths(objPaths);
+      setCrudInputs({ ...crudInputs, endpoint: objPaths[0][0] });
+      if (!paths) {
+        setLoadingPaths(true);
+      }
     }
-  }, [swaggerObj]);
+  }, [swaggerObj, loadingPaths]);
 
   /**
    * get endpoint definitions from swagger
