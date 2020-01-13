@@ -9,6 +9,7 @@ import EndpointPaths from '../EndpointPaths/EndpointPaths'
 
 const EndpointMainWrapper = styled.div`
   display: flex;
+  flex: 1;
   position: relative;
   height: 100%;
   background-color: ${colors.gray};

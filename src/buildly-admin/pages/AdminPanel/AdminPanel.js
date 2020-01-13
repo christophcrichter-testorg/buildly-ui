@@ -3,8 +3,35 @@ import { connect } from 'react-redux'
 import { httpService } from '../../../midgard/modules/http/http.service'
 import { environment } from 'environment'
 import NavBarAdmin from '../../components/NavBarAdmin/NavBarAdmin';
+import TopBarAdmin from '../../components/TopBarAdmin/TopBarAdmin';
 import EndpointMain from '../../components/EndpointMain/EndpointMain';
 import { withRouter } from 'react-router'
+import styled from 'styled-components'
+
+const ContainerWrapper = styled.div`
+  height: 100%;
+  display: flex;
+
+  .container {
+    &__row {
+      display: flex;
+      flex: 1;
+    }
+
+    &__column {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    &__scroll {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      overflow: scroll;
+    }
+  }
+`
 
 /**
  * Outputs the admin landing page.
@@ -35,10 +62,15 @@ function AdminPanel({ match, location, history }) {
   }, [match]);
 
   return (
-    <React.Fragment>
-      <NavBarAdmin swaggerObj={swaggerObj} navHiddenState={navHiddenState} location={location} history={history} />
-      {swaggerObj && <EndpointMain endpoint={currentEndpoint} swaggerObj={swaggerObj} match={match} />}
-    </React.Fragment>
+    <ContainerWrapper>
+      <div className="container__column">
+        <TopBarAdmin swaggerObj={swaggerObj} navHiddenState={navHiddenState} location={location} history={history} />
+        {swaggerObj && <div className="container__row">
+          <NavBarAdmin swaggerObj={swaggerObj} navHiddenState={navHiddenState} location={location} history={history} />
+          <EndpointMain endpoint={currentEndpoint} swaggerObj={swaggerObj} match={match} />
+        </div>}
+      </div>
+    </ContainerWrapper>
   )
 }
 
