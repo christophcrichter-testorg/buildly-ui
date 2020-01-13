@@ -33,7 +33,7 @@ function AdminLogin({dispatch, loading}) {
   }
 
   return (
-    <AuthForm onSubmit={submit} link={registerLink}>
+    <AuthForm onSubmit={submit} link={registerLink} isAdmin={true}>
       <FjInputField
         label="Username"
         id="username"

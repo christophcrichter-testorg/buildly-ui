@@ -37,7 +37,7 @@ function AdminPanel({ match, location, history }) {
   return (
     <React.Fragment>
       <NavBarAdmin swaggerObj={swaggerObj} navHiddenState={navHiddenState} location={location} history={history} />
-      <EndpointMain endpoint={currentEndpoint} swaggerObj={swaggerObj} match={match} />
+      {swaggerObj && <EndpointMain endpoint={currentEndpoint} swaggerObj={swaggerObj} match={match} />}
     </React.Fragment>
   )
 }

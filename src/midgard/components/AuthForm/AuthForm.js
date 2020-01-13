@@ -1,8 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { colors } from 'colors'
 import { rem } from 'polished'
 import logo from 'assets/midgard-logo.svg'
+import adminLogo from 'assets/midgard-admin-logo.svg'
 import { Link } from 'react-router-dom'
 import Crud, { CrudContext } from 'midgard/modules/crud/Crud'
 import { useContext } from 'react'
@@ -24,6 +25,8 @@ const AuthFormWrapper = styled.div`
         display: block;
         width: ${rem(100)};
         margin: ${rem(30)} auto;
+
+        ${props => props.isAdmin && css`width: ${rem(200)};`}
       }
       
       &__content {
@@ -55,12 +58,12 @@ const AuthFormWrapper = styled.div`
 /**
  * Generic component to wrap form fields on the login and registration screens.
  */
-function AuthForm({children, onSubmit, link}) {
+function AuthForm({children, onSubmit, link, isAdmin}) {
     return (
-      <AuthFormWrapper className="auth">
+      <AuthFormWrapper className="auth" isAdmin={isAdmin}>
         <div className="auth__card">
           <div className="auth__card__content">
-            <img className="auth__card__logo" src={logo} />
+            <img className="auth__card__logo" src={isAdmin ? adminLogo : logo} />
             <form className="auth__form" onSubmit={onSubmit}>
               {children}
               <Link className="auth__form__link" to={{

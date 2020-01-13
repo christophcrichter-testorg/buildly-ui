@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import logo from 'assets/midgard-logo.svg'
+import adminLogo from 'assets/midgard-admin-logo.svg'
 import { colors } from 'colors'
 import styled, { css } from 'styled-components'
 import { rem } from 'polished'
@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import { AppContext } from 'midgard/context/App.context'
 import { FjButton } from '@buildlyio/freyja-react'
 import { logout } from 'midgard/redux/authuser/actions/authuser.actions'
+import logoutIcon from 'assets/logout-icon.svg'
 
 const topBarHeight = rem(60);
 const searchSize = rem(32);
@@ -53,7 +54,7 @@ const TopBarWrapper = styled.div`
         }
       }
     }
-    
+
     &__bar {
       height: ${rem(2)};
       background-color: ${colors.primary};
@@ -66,6 +67,7 @@ const TopBarWrapper = styled.div`
 
     &__menu-container {
       height: ${rem(32)};
+      min-width: ${rem(32)};
       width: ${rem(32)};
       margin-right: ${rem(8)};
       cursor: pointer;
@@ -78,7 +80,7 @@ const TopBarWrapper = styled.div`
     }
 
     &__logo {
-      height: ${rem(32)};
+      height: ${rem(24)};
       margin-right: ${rem(8)};
     }
 
@@ -169,7 +171,6 @@ const TopBarWrapper = styled.div`
  * Component for the top bar header.
  */
 function NavBarAdmin({ navHiddenState, history, location, dispatch }) {
-  const app = useContext(AppContext);
   const [navHidden, setNavHidden] = navHiddenState;
 
   /**
@@ -194,10 +195,9 @@ function NavBarAdmin({ navHiddenState, history, location, dispatch }) {
               </div>
             </div>
           </div>
-          <img className="top-bar__logo" src={logo} />
-          <h1 className="top-bar__title">{app.appTitle} Admin</h1>
+          <img className="top-bar__logo" src={adminLogo} />
         </div>
-        <FjButton size="micro" onClick={userLogout}>Logout</FjButton>
+        <FjButton size="micro" onClick={userLogout}><img src={logoutIcon} /></FjButton>
       </div>
     </TopBarWrapper>
   )
