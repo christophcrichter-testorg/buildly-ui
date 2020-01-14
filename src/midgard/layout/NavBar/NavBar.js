@@ -5,6 +5,7 @@ import { AppContext } from 'midgard/context/App.context';
 import { colors } from 'colors'
 import styled, { css } from 'styled-components'
 import { rem } from 'polished'
+import { SubNavContext } from 'midgard/context/SubNav.context';
 
 const NavBarWrapper = styled.div`
   display: flex;
@@ -45,6 +46,7 @@ const NavBarWrapper = styled.div`
  */
 function NavBar({navHidden, location, history}) {
   const app = useContext(AppContext);
+  const subNav = useContext(SubNavContext);
 
   /**
    * Sets the active item.
@@ -54,6 +56,16 @@ function NavBar({navHidden, location, history}) {
     const { from } = location.state || { from: { pathname: `/app/${active}` } };
     history.push(from);
   };
+
+  // Create NavItem list
+  const subNavItems = subNav.map((item, index) => {
+    return <NavItem
+      key={index}
+      title={item.label}
+      active={location.pathname.includes(item.value)}
+      action={ () => setActive(item.value)}
+    />
+  });
 
   const logicModuleNavItems = [];
   if (app.modules.length) {
@@ -73,6 +85,7 @@ function NavBar({navHidden, location, history}) {
     <NavBarWrapper className="nav-bar" hidden={navHidden}>
       <div className="nav-bar__container">
         <div className="nav-bar__elements">
+          {subNavItems}
           {logicModuleNavItems}
         </div>
         <NavUser location={location} history={history} />
