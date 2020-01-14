@@ -53,12 +53,12 @@ function NavBar({navHidden, location, history}) {
   const setActive = (active) => {
     const { from } = location.state || { from: { pathname: `/app/${active}` } };
     history.push(from);
-  }
+  };
 
-  const items = [];
+  const logicModuleNavItems = [];
   if (app.modules.length) {
     for (const item of app.modules) {
-      items.push(<NavItem
+      logicModuleNavItems.push(<NavItem
         key={item.id}
         id={item.id}
         title={item.title}
@@ -68,12 +68,12 @@ function NavBar({navHidden, location, history}) {
       />);
     }
   }
-  
+
   return (
     <NavBarWrapper className="nav-bar" hidden={navHidden}>
       <div className="nav-bar__container">
         <div className="nav-bar__elements">
-          {items}
+          {logicModuleNavItems}
         </div>
         <NavUser location={location} history={history} />
       </div>
