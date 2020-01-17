@@ -13,6 +13,7 @@ import LogicModuleManagement from 'midgard/pages/LogicModuleManagement/LogicModu
 
 import { user, UserContext } from 'midgard/context/User.context'
 import { subNav, SubNavContext } from 'midgard/context/SubNav.context'
+import HealthCheck from 'midgard/pages/HealthCheck/HealthCheck';
 
 const ContainerWrapper = styled.div`
   height: 100%;
@@ -83,6 +84,7 @@ function Container({ location, history }) {
               <Route path="/app/profile/settings" component={Profile} />
               <Route path="/app/admin/users" component={UserManagement} />
               <Route path="/app/admin/logic-modules" component={LogicModuleManagement} />
+              <Route path="/app/admin/health-check" component={HealthCheck} />
               {routeItems}
             </div>
           </div>
