@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { connect } from 'react-redux'
 import { colors } from 'colors'
 import styled, { css } from 'styled-components'
@@ -8,6 +8,7 @@ import { FjButton } from '@buildlyio/freyja-react'
 import LogicModule from 'midgard/components/LogicModule/LogicModule';
 import { NewLogicModuleForm } from '../../components/NewLogicModuleForm/NewLogicModuleForm'
 import Popup from 'reactjs-popup'
+import useWindowDimensions from 'midgard/hooks/useWindowDimensions';
 
 const ModuleManagementWrapper = styled.div`
   height: 100%;
@@ -41,6 +42,9 @@ const ModuleManagementContainer = styled.div`
  */
 function LogicModuleManagement({ history, data, dispatch }) {
   const [logicModulesLoaded, setLogicModulesLoaded] = useState(false);
+  const {_, width} = useWindowDimensions();
+  const popoverRef = useRef(null);
+  const POPOVER_WIDTH = 416;
 
   useEffect(() => {
     history.push(`/app/admin/logic-modules`);
@@ -73,13 +77,15 @@ function LogicModuleManagement({ history, data, dispatch }) {
         <ModuleManagementHeading>List of logic modules</ModuleManagementHeading>
         <Popup
           trigger={<FjButton size="small">Add</FjButton>}
-          position="bottom right"
-          on="click"
+          offsetX={(width / 2) - POPOVER_WIDTH }
+          offsetY={50}
           closeOnDocumentClick
           mouseLeaveDelay={300}
           mouseEnterDelay={0}
-          contentStyle={{ padding: '0px', border: 'none', width: `{rem(350)}` }}
-          arrow={false}>
+          contentStyle={{ padding: '0px', border: 'none', width: `{rem(${POPOVER_WIDTH})}` }}
+          arrow={false}
+          ref={popoverRef}
+        >
           <NewLogicModuleForm action={handleCreate} />
         </Popup>
       </ModuleManagementHeader>
