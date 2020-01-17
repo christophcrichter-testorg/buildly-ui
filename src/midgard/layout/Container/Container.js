@@ -69,7 +69,9 @@ function Container({ location, history }) {
             <TopBar navHidden={navHidden} setNavHidden={setNavHidden} options={subNavItems} location={location} history={history} />
           </SubNavContext.Provider>
           <div className="container__row">
-            <NavBar navHidden={navHidden} location={location} history={history} />
+            <SubNavContext.Provider value={subNavItems}>
+              <NavBar navHidden={navHidden} location={location} history={history} />
+            </SubNavContext.Provider>
             <div className="container__scroll">
               <Route exact path="/app" render={() => (
                 <Redirect to="/app/profile"/>
