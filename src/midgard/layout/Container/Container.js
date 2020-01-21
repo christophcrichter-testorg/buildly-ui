@@ -60,6 +60,7 @@ function Container({ location, history }) {
       { label: 'User management', value: 'admin/users' },
       { label: 'Module management', value: 'admin/logic-modules' },
       { label: 'Health check', value: 'admin/health-check' },
+	    { label: 'Access Tokens', value: 'admin/access-tokens' },
     ];
   }
 
