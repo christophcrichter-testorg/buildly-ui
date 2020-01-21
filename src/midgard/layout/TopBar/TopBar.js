@@ -95,7 +95,7 @@ const TopBarWrapper = styled.div`
       display: flex;
       flex: 1;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-end;
       padding: 0 ${rem(24)};
     }
 
@@ -212,7 +212,7 @@ function TopBar({ navHidden, setNavHidden, history, location }) {
           <h1 className="top-bar__title">{app.appTitle}</h1>
         </div>
         <div className="top-bar__content">
-          <FjContentSwitcher options={subNav} active={viewState} size="small" />
+          {/*<FjContentSwitcher options={subNav} active={viewState} size="small" />*/}
           <form className="top-bar__search" onSubmit={search}>
             <input className="top-bar__search__input" placeholder="Search" />
             <button className="top-bar__search__submit" type="submit">
