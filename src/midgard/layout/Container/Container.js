@@ -13,6 +13,7 @@ import LogicModuleManagement from 'midgard/pages/LogicModuleManagement/LogicModu
 
 import { user, UserContext } from 'midgard/context/User.context'
 import { subNav, SubNavContext } from 'midgard/context/SubNav.context'
+import HealthCheck from 'midgard/pages/HealthCheck/HealthCheck';
 
 const ContainerWrapper = styled.div`
   height: 100%;
@@ -46,8 +47,8 @@ const ContainerWrapper = styled.div`
 function Container({ location, history }) {
   const [navHidden, setNavHidden] = useState(false);
   const routeItems = [];
-    //entryPointForGulpStart
-    //entryPointForGulpEnd
+  //entryPointForGulpStart
+  //entryPointForGulpEnd
 
   let subNavItems = subNav;
   if (location.pathname.includes('profile')) {
@@ -58,6 +59,7 @@ function Container({ location, history }) {
     subNavItems = [
       { label: 'User management', value: 'admin/users' },
       { label: 'Module management', value: 'admin/logic-modules' },
+      { label: 'Health check', value: 'admin/health-check' },
     ];
   }
 
@@ -85,6 +87,7 @@ function Container({ location, history }) {
               <Route path="/app/profile/settings" component={Profile} />
               <Route path="/app/admin/users" component={UserManagement} />
               <Route path="/app/admin/logic-modules" component={LogicModuleManagement} />
+              <Route path="/app/admin/health-check" component={HealthCheck} />
               {routeItems}
             </div>
           </div>

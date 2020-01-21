@@ -5,6 +5,7 @@ import coreuserReducer from './coreuser/coreuser.reducer';
 import coreGroupReducer from './coregroup/reducers/coregroup.reducer';
 import crudDataReducer from 'midgard/modules/crud/redux/crud.reducer';
 import logicModuleReducer from './logicmodule/logicmodule.reducer';
+import healthStatusReducer from './health-status/reducers/health-status.reducer'
 
 const rootReducer = combineReducers(
   {
@@ -15,6 +16,7 @@ const rootReducer = combineReducers(
     coreGroupReducer,
     crudDataReducer,
     logicModuleReducer,
+    healthStatusReducer,
   }
 );
 
