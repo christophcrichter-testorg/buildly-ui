@@ -90,6 +90,7 @@ function Container({ location, history }) {
               <Route path="/app/admin/users" component={UserManagement} />
               <Route path="/app/admin/logic-modules" component={LogicModuleManagement} />
               <Route path="/app/admin/health-check" component={HealthCheck} />
+	            <Route path="/app/admin/access-tokens" component={AccessTokens} />
               {routeItems}
             </div>
           </div>
