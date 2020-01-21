@@ -10,10 +10,11 @@ import TopBar from 'midgard/layout/TopBar/TopBar'
 import Profile from 'midgard/pages/Profile/Profile'
 import UserManagement from 'midgard/pages/UserManagement/UserManagement'
 import LogicModuleManagement from 'midgard/pages/LogicModuleManagement/LogicModuleManagement'
+import HealthCheck from 'midgard/pages/HealthCheck/HealthCheck';
+import AccessTokens from 'midgard/pages/AccessTokens/AccessTokens';
 
 import { user, UserContext } from 'midgard/context/User.context'
 import { subNav, SubNavContext } from 'midgard/context/SubNav.context'
-import HealthCheck from 'midgard/pages/HealthCheck/HealthCheck';
 
 const ContainerWrapper = styled.div`
   height: 100%;
