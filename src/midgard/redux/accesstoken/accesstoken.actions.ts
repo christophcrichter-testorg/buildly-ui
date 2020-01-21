@@ -1,0 +1,5 @@
+export const  LOAD_ACCESSTOKENS = 'LOAD_ACCESS_TOKENS';
+export const  LOAD_ACCESSTOKENS_SUCCESS = 'LOAD_ACCESS_TOKENS_SUCCESS';
+export const  LOAD_ACCESSTOKENS_FAIL = 'LOAD_ACCESS_TOKENS_FAIL';
+
+export const loadAccessTokens = () => ({ type: LOAD_ACCESSTOKENS });
