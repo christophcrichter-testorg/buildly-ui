@@ -47,8 +47,8 @@ const ContainerWrapper = styled.div`
 function Container({ location, history }) {
   const [navHidden, setNavHidden] = useState(false);
   const routeItems = [];
-    //entryPointForGulpStart
-    //entryPointForGulpEnd
+  //entryPointForGulpStart
+  //entryPointForGulpEnd
 
   let subNavItems = subNav;
   if (location.pathname.includes('profile')) {
@@ -59,6 +59,7 @@ function Container({ location, history }) {
     subNavItems = [
       { label: 'User management', value: 'admin/users' },
       { label: 'Module management', value: 'admin/logic-modules' },
+      { label: 'Health check', value: 'admin/health-check' },
     ];
   }
 
@@ -70,7 +71,9 @@ function Container({ location, history }) {
             <TopBar navHidden={navHidden} setNavHidden={setNavHidden} options={subNavItems} location={location} history={history} />
           </SubNavContext.Provider>
           <div className="container__row">
-            <NavBar navHidden={navHidden} location={location} history={history} />
+            <SubNavContext.Provider value={subNavItems}>
+              <NavBar navHidden={navHidden} location={location} history={history} />
+            </SubNavContext.Provider>
             <div className="container__scroll">
               <Route exact path="/app" render={() => (
                 <Redirect to="/app/profile"/>
