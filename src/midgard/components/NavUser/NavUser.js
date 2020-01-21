@@ -25,7 +25,6 @@ export function NavUser({location, history, dispatch}) {
 
   const [open, setOpen] = useState(false);
   const menuItems = [
-    { value: 'health-check', label: 'Health check' },
     { value: 'profile', label: 'Profile settings' },
     { value: 'admin', label: 'Admin settings' },
     { value: 'logout', label: 'Logout' }
@@ -56,11 +55,6 @@ export function NavUser({location, history, dispatch}) {
     history.push(from);
   }
 
-  const gotoHealthCheck = () => {
-    const { from } = location.state || { from: { pathname: '/app/admin/health-check' } };
-    history.push(from);
-  }
-
   /**
    * Handles the action.
    * @param {string} action
@@ -73,8 +67,6 @@ export function NavUser({location, history, dispatch}) {
         return gotoAdmin();
       case 'logout':
         return userLogout();
-      case 'health-check':
-        return gotoHealthCheck();
       default:
         return;
     }
