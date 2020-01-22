@@ -12,7 +12,7 @@ import { httpService } from 'midgard/modules/http/http.service';
 
 import { environment } from 'environment';
 
-const endpoint = `${environment.API_URL}oauth/accesstoken/`;
+const endpoint = `${environment.API_URL}oauth/accesstokens/`;
 
 function* loadAccessTokens() {
 	try {
