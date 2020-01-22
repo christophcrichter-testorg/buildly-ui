@@ -9,6 +9,7 @@ import AccessTokens from 'midgard/pages/TokenManagement/AccessTokens/AccessToken
 import RefreshTokens from 'midgard/pages/TokenManagement/RefreshTokens/RefreshTokens';
 
 const TokenManagementWrapper = styled.div`
+	height: 100%;
 	width: 100%;
 	display: flex;
 	flex: 1;
