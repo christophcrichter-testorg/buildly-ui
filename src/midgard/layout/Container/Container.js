@@ -11,7 +11,7 @@ import Profile from 'midgard/pages/Profile/Profile'
 import UserManagement from 'midgard/pages/UserManagement/UserManagement'
 import LogicModuleManagement from 'midgard/pages/LogicModuleManagement/LogicModuleManagement'
 import HealthCheck from 'midgard/pages/HealthCheck/HealthCheck';
-import AccessTokens from 'midgard/pages/AccessTokens/AccessTokens';
+import TokenManagement from 'midgard/pages/TokenManagement/TokenManagement';
 
 import { user, UserContext } from 'midgard/context/User.context'
 import { subNav, SubNavContext } from 'midgard/context/SubNav.context'
@@ -61,7 +61,7 @@ function Container({ location, history }) {
       { label: 'User management', value: 'admin/users' },
       { label: 'Module management', value: 'admin/logic-modules' },
       { label: 'Health check', value: 'admin/health-check' },
-	    { label: 'Access Tokens', value: 'admin/access-tokens' },
+	    { label: 'Token Management', value: 'admin/tokens' },
     ];
   }
 
@@ -90,7 +90,7 @@ function Container({ location, history }) {
               <Route path="/app/admin/users" component={UserManagement} />
               <Route path="/app/admin/logic-modules" component={LogicModuleManagement} />
               <Route path="/app/admin/health-check" component={HealthCheck} />
-	            <Route path="/app/admin/access-tokens" component={AccessTokens} />
+	            <Route path="/app/admin/tokens" component={TokenManagement} />
               {routeItems}
             </div>
           </div>
