@@ -1,27 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import { colors } from 'colors'
-import { rem } from 'polished'
 import { deleteAccessToken, loadAccessTokens } from 'midgard/redux/accesstoken/accesstoken.actions';
 import { FjTable, FjMenu, FjButton } from '@buildlyio/freyja-react';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 
 const AccessTokensWrapper = styled.div`
 	width: 100%;
-	display: flex;
-	flex: 1;
-	background-color: ${colors.baseLighter};
 	
 	.access-tokens {
-		&__container {
-			display: flex;
-			flex-direction: column;
-			flex: 1;
-			align-items: flex-start;
-			margin: 0 ${rem(24)};
-		}
-		
 		&__token {
 			white-space: nowrap;
   		overflow: hidden;
