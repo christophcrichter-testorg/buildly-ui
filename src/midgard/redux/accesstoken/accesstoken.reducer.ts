@@ -1,5 +1,14 @@
 import { AccessToken } from './accesstoken.model';
-import { LOAD_ACCESSTOKENS, LOAD_ACCESSTOKENS_FAIL, LOAD_ACCESSTOKENS_SUCCESS } from './accesstoken.actions';
+import {
+	DELETE_ACCESSTOKEN,
+	DELETE_ACCESSTOKEN_FAIL,
+	DELETE_ACCESSTOKEN_SUCCESS,
+	LOAD_ACCESSTOKENS,
+	LOAD_ACCESSTOKENS_FAIL,
+	LOAD_ACCESSTOKENS_SUCCESS
+} from './accesstoken.actions';
+
+import { addAll, deleteOne } from '../reducer.utils';
 
 export interface AccessTokenState {
 	data: AccessToken[],
@@ -25,13 +34,15 @@ const initialState: AccessTokenState = {
 	deleted: false,
 };
 
-export default function accessTokenReducer(state=initialState, action) {
+export default function accessTokenReducer(state = initialState, action) {
 	switch (action.type) {
-		case LOAD_ACCESSTOKENS:
+		case LOAD_ACCESSTOKENS: {
+			const _state = addAll(state, action);
 			return {
-				...state,
+				..._state,
 				loading: true
 			};
+		}
 
 		case LOAD_ACCESSTOKENS_SUCCESS:
 			return {
@@ -46,6 +57,27 @@ export default function accessTokenReducer(state=initialState, action) {
 				...state,
 				loading: false,
 				loaded: false,
+			};
+
+		case DELETE_ACCESSTOKEN:
+			return {
+				...state,
+				deleting: true,
+			};
+
+		case DELETE_ACCESSTOKEN_SUCCESS: {
+			const _state = deleteOne(state, action, 'id');
+			return {
+				..._state,
+				deleting: false,
+			};
+		}
+
+		case DELETE_ACCESSTOKEN_FAIL:
+			return {
+				...state,
+				deleting: false,
+				deleted: false
 			};
 
 		default:
