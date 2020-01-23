@@ -8,6 +8,7 @@ import logicModuleReducer from './logicmodule/logicmodule.reducer';
 import healthStatusReducer from './health-status/reducers/health-status.reducer'
 import accessTokenReducer from './accesstoken/accesstoken.reducer';
 import refreshTokenReducer from './refreshtoken/refreshtoken.reducer';
+import applicationReducer from './applications/application.reducer';
 
 const rootReducer = combineReducers(
   {
@@ -21,6 +22,7 @@ const rootReducer = combineReducers(
     healthStatusReducer,
 	  accessTokenReducer,
     refreshTokenReducer,
+    applicationReducer
   }
 );
 
