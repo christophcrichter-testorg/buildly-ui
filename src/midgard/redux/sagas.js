@@ -7,6 +7,7 @@ import coreGroupSaga from "./coregroup/sagas/coregroup.saga"
 import logicModuleSaga from "./logicmodule/logicmodule.saga"
 import healthStatusSaga from './health-status/sagas/health-status.saga';
 import accessTokenSaga from 'midgard/redux/accesstoken/accesstoken.saga';
+import refreshTokenSaga from 'midgard/redux/refreshtoken/refreshtoken.saga';
 
 // single entry point to start all Sagas at once
 export default function* rootSaga() {
@@ -21,5 +22,6 @@ export default function* rootSaga() {
     logicModuleSaga(),
     healthStatusSaga(),
     accessTokenSaga(),
+    refreshTokenSaga(),
   ])
 }
