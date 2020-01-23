@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { deleteAccessToken, loadAccessTokens } from 'midgard/redux/accesstoken/accesstoken.actions';
 import { FjTable, FjMenu, FjButton } from '@buildlyio/freyja-react';
-import { NotificationContainer, NotificationManager } from 'react-notifications';
+import { NotificationContainer } from 'react-notifications';
 
 const AccessTokensWrapper = styled.div`
 	width: 100%;
@@ -33,27 +33,27 @@ const formatDate = (dateString) => {
 	}).format(expires);
 };
 
-function AccessTokens({ data, dispatch ,deleted }) {
+function AccessTokens({ data, dispatch, loaded, loading }) {
+	const [accessTokens, setAccessTokens] = useState([]);
 	const [menuState, setMenuState] = useState({ opened: false, id: '' });
-	const [accessTokensLoaded, setAccessTokensLoaded] = useState(false);
 
 	useEffect(() => {
-		if (!accessTokensLoaded) {
+		if (!loading && !loaded) {
 			dispatch(loadAccessTokens());
-			setAccessTokensLoaded(true);
 		}
 
-		if (deleted) {
-			NotificationManager.success('Access token deleted', 'Success');
+		if (data) {
+			const sortedAccessTokens = sortByExpiryDate(data);
+			setAccessTokens(sortedAccessTokens);
 		}
-	}, [data]);
 
-	let accessTokens = [];
-	if (data) {
-		accessTokens = data.sort((accessToken, accessToken1) => {
+	}, [data, loading, loaded]);
+
+	const sortByExpiryDate = (accessTokens) => {
+		return accessTokens.sort((accessToken, accessToken1) => {
 			return new Date(accessToken1.expires).getTime() - new Date(accessToken.expires).getTime();
 		});
-	}
+	};
 
 	const actionsTemplate = (row) => {
 		return <FjMenu
