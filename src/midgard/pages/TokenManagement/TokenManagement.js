@@ -120,6 +120,7 @@ const TokenManagement = ({ history, location, dispatch }) => {
 				)}/>
 				<Route path={`${pathName}/access-tokens`} component={AccessTokens}/>
 				<Route path={`${pathName}/refresh-tokens`} component={RefreshTokens}/>
+				<Route path={`${pathName}/applications`} component={Applications}/>
 			</div>
 			<NotificationContainer/>
 		</TokenManagementWrapper>
