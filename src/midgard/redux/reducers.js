@@ -7,6 +7,7 @@ import crudDataReducer from 'midgard/modules/crud/redux/crud.reducer';
 import logicModuleReducer from './logicmodule/logicmodule.reducer';
 import healthStatusReducer from './health-status/reducers/health-status.reducer'
 import accessTokenReducer from './accesstoken/accesstoken.reducer';
+import refreshTokenReducer from './refreshtoken/refreshtoken.reducer';
 
 const rootReducer = combineReducers(
   {
@@ -19,6 +20,7 @@ const rootReducer = combineReducers(
     logicModuleReducer,
     healthStatusReducer,
 	  accessTokenReducer,
+    refreshTokenReducer,
   }
 );
 

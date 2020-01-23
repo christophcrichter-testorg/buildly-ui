@@ -11,6 +11,7 @@ import { put, takeLatest, all, call } from 'redux-saga/effects';
 import { httpService } from 'midgard/modules/http/http.service';
 
 import { environment } from 'environment';
+import { NotificationManager } from 'react-notifications';
 
 const endpoint = `${environment.API_URL}oauth/accesstokens/`;
 
@@ -30,7 +31,8 @@ function* deleteAccessToken(action) {
 		yield call(httpService.makeRequest, 'delete', `${endpoint}${action.data.id}/`, {}, true);
 		yield [
 			yield put({ type: DELETE_ACCESSTOKEN_SUCCESS, data: action.data })
-		]
+		];
+		NotificationManager.success('Access token deleted', 'Success');
 	} catch (error) {
 		yield put({ type: DELETE_ACCESSTOKEN_FAIL, error })
 	}
