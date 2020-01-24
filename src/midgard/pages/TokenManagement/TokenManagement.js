@@ -92,7 +92,7 @@ const TokenManagement = ({ history, location, dispatch }) => {
 		<TokenManagementWrapper>
 			<div className="tokens__container">
 				<div className="tokens__header">
-					<h3 className="tokens__header__name">Manage authentication tokens</h3>
+					<h3 className="tokens__header__name">Manage authentication</h3>
 					{
 						location.pathname.includes('applications') &&
 						<Popup
