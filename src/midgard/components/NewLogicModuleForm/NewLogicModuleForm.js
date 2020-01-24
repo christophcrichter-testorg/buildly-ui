@@ -2,28 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { useInput } from "midgard/hooks/useInput"
 import { FjInputField, FjButton} from '@buildlyio/freyja-react'
-import styled from 'styled-components'
-import { rem } from 'polished'
 
-const FormWrapper = styled.form`
-  padding: ${rem(12)};
-`;
-
-const FieldRow = styled.div`
-  display: flex;
-  align-items: stretch;
-`;
-
-const FieldWrapper = styled.div`
-  padding: 0 ${rem(2)};
-`;
-
-const ActionWrapper = styled.div`
-  flex: 1;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-`;
+import { FormWrapper, FieldRow, FieldWrapper, ActionWrapper } from 'midgard/components/FormUtils/FormUtils';
 
 /**
  * Component for user that appears in the sidebar navigation.
