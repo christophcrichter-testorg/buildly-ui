@@ -1,5 +1,30 @@
 # Change Log
 
+## [0.2.0](https://github.com/buildlyio/buildly-ui-react/tree/0.2.0) (2020-02-03)
+[Full Changelog](https://github.com/buildlyio/buildly-ui-react/compare/0.1.0...0.2.0)
+
+**Implemented enhancements:**
+
+- Implement Health Check section to show Buildly Core status [\#73](https://github.com/buildlyio/buildly-ui-react/issues/73)
+- Move navigation from top to sidebar [\#68](https://github.com/buildlyio/buildly-ui-react/issues/68)
+- Manage connected services [\#57](https://github.com/buildlyio/buildly-ui-react/issues/57)
+
+**Fixed bugs:**
+
+- The LogicModule form isn't centralized [\#71](https://github.com/buildlyio/buildly-ui-react/issues/71)
+- Fix Admin Settings doesn't list users [\#67](https://github.com/buildlyio/buildly-ui-react/issues/67)
+
+**Merged pull requests:**
+
+- Update endpoint to retrieve oauthuser [\#89](https://github.com/buildlyio/buildly-ui-react/pull/89) ([jefmoura](https://github.com/jefmoura))
+- Manage auth processes [\#86](https://github.com/buildlyio/buildly-ui-react/pull/86) ([muliswilliam](https://github.com/muliswilliam))
+- Manage refresh tokens [\#85](https://github.com/buildlyio/buildly-ui-react/pull/85) ([muliswilliam](https://github.com/muliswilliam))
+- Manage access tokens [\#84](https://github.com/buildlyio/buildly-ui-react/pull/84) ([muliswilliam](https://github.com/muliswilliam))
+- Implement Health Check section to show Buildly Core status [\#82](https://github.com/buildlyio/buildly-ui-react/pull/82) ([muliswilliam](https://github.com/muliswilliam))
+- Centralize logic module form [\#81](https://github.com/buildlyio/buildly-ui-react/pull/81) ([muliswilliam](https://github.com/muliswilliam))
+- Move top navigation to sidebar [\#74](https://github.com/buildlyio/buildly-ui-react/pull/74) ([muliswilliam](https://github.com/muliswilliam))
+- Add logic modules view [\#66](https://github.com/buildlyio/buildly-ui-react/pull/66) ([andrewshortall](https://github.com/andrewshortall))
+
 ## [0.1.0](https://github.com/buildlyio/buildly-ui-react/tree/0.1.0) (2019-11-12)
 [Full Changelog](https://github.com/buildlyio/buildly-ui-react/compare/v0.0.9...0.1.0)
 
@@ -8,18 +33,9 @@
 - Roles should be listed in multiple rows in case they don't fit in the same line [\#53](https://github.com/buildlyio/buildly-ui-react/issues/53)
 - Assign multiple roles to a user [\#52](https://github.com/buildlyio/buildly-ui-react/issues/52)
 
-**Fixed bugs:**
-
-- Fix Admin Settings doesn't list users [\#67](https://github.com/buildlyio/buildly-ui-react/issues/67)
-
-**Closed issues:**
-
-- Manage connected services [\#57](https://github.com/buildlyio/buildly-ui-react/issues/57)
-
 **Merged pull requests:**
 
 - Fix redirect \#67 [\#70](https://github.com/buildlyio/buildly-ui-react/pull/70) ([andrewshortall](https://github.com/andrewshortall))
-- Add logic modules view [\#66](https://github.com/buildlyio/buildly-ui-react/pull/66) ([andrewshortall](https://github.com/andrewshortall))
 - Allowed users to be assigned multiple roles [\#65](https://github.com/buildlyio/buildly-ui-react/pull/65) ([andrewshortall](https://github.com/andrewshortall))
 - Bump file-loader from 3.0.1 to 4.2.0 [\#64](https://github.com/buildlyio/buildly-ui-react/pull/64) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump babel-jest from 23.6.0 to 24.9.0 [\#63](https://github.com/buildlyio/buildly-ui-react/pull/63) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
@@ -63,6 +79,7 @@
 **Merged pull requests:**
 
 - Subnav [\#35](https://github.com/buildlyio/buildly-ui-react/pull/35) ([andrewshortall](https://github.com/andrewshortall))
+- Added user management, create content switcher PLAT-402 [\#30](https://github.com/buildlyio/buildly-ui-react/pull/30) ([andrewshortall](https://github.com/andrewshortall))
 
 ## [v0.0.4](https://github.com/buildlyio/buildly-ui-react/tree/v0.0.4) (2019-05-22)
 [Full Changelog](https://github.com/buildlyio/buildly-ui-react/compare/v0.0.3...v0.0.4)
@@ -73,7 +90,6 @@
 - adding invite screen for user [\#33](https://github.com/buildlyio/buildly-ui-react/pull/33) ([mughees-Ilyas](https://github.com/mughees-Ilyas))
 - Use freyja [\#32](https://github.com/buildlyio/buildly-ui-react/pull/32) ([andrewshortall](https://github.com/andrewshortall))
 - Test coverage [\#31](https://github.com/buildlyio/buildly-ui-react/pull/31) ([mughees-Ilyas](https://github.com/mughees-Ilyas))
-- Added user management, create content switcher PLAT-402 [\#30](https://github.com/buildlyio/buildly-ui-react/pull/30) ([andrewshortall](https://github.com/andrewshortall))
 
 ## [v0.0.3](https://github.com/buildlyio/buildly-ui-react/tree/v0.0.3) (2019-05-14)
 [Full Changelog](https://github.com/buildlyio/buildly-ui-react/compare/v0.0.1...v0.0.3)
@@ -96,7 +112,7 @@
 - Updating version [\#20](https://github.com/buildlyio/buildly-ui-react/pull/20) ([andrewshortall](https://github.com/andrewshortall))
 - adding saga and reducers automatically for clients [\#19](https://github.com/buildlyio/buildly-ui-react/pull/19) ([mughees-Ilyas](https://github.com/mughees-Ilyas))
 - Updated readme [\#18](https://github.com/buildlyio/buildly-ui-react/pull/18) ([andrewshortall](https://github.com/andrewshortall))
-- fix dockerfile to run midgard with docker [\#17](https://github.com/buildlyio/buildly-ui-react/pull/17) ([yilmazbekdemir](https://github.com/yilmazbekdemir))
+- fix dockerfile to run midgard with docker [\#17](https://github.com/buildlyio/buildly-ui-react/pull/17) ([ybekdemir](https://github.com/ybekdemir))
 - Fixed command [\#15](https://github.com/buildlyio/buildly-ui-react/pull/15) ([andrewshortall](https://github.com/andrewshortall))
 - Imported products to saga/reducer index.js files [\#14](https://github.com/buildlyio/buildly-ui-react/pull/14) ([andrewshortall](https://github.com/andrewshortall))
 - Update readme [\#13](https://github.com/buildlyio/buildly-ui-react/pull/13) ([andrewshortall](https://github.com/andrewshortall))
