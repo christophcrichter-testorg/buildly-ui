@@ -7,12 +7,15 @@
 
 - Implement Health Check section to show Buildly Core status [\#73](https://github.com/buildlyio/buildly-ui-react/issues/73)
 - Move navigation from top to sidebar [\#68](https://github.com/buildlyio/buildly-ui-react/issues/68)
-- Manage connected services [\#57](https://github.com/buildlyio/buildly-ui-react/issues/57)
 
 **Fixed bugs:**
 
 - The LogicModule form isn't centralized [\#71](https://github.com/buildlyio/buildly-ui-react/issues/71)
 - Fix Admin Settings doesn't list users [\#67](https://github.com/buildlyio/buildly-ui-react/issues/67)
+
+**Closed issues:**
+
+- Manage connected services [\#57](https://github.com/buildlyio/buildly-ui-react/issues/57)
 
 **Merged pull requests:**
 
@@ -23,10 +26,9 @@
 - Implement Health Check section to show Buildly Core status [\#82](https://github.com/buildlyio/buildly-ui-react/pull/82) ([muliswilliam](https://github.com/muliswilliam))
 - Centralize logic module form [\#81](https://github.com/buildlyio/buildly-ui-react/pull/81) ([muliswilliam](https://github.com/muliswilliam))
 - Move top navigation to sidebar [\#74](https://github.com/buildlyio/buildly-ui-react/pull/74) ([muliswilliam](https://github.com/muliswilliam))
-- Add logic modules view [\#66](https://github.com/buildlyio/buildly-ui-react/pull/66) ([andrewshortall](https://github.com/andrewshortall))
 
 ## [0.1.0](https://github.com/buildlyio/buildly-ui-react/tree/0.1.0) (2019-11-12)
-[Full Changelog](https://github.com/buildlyio/buildly-ui-react/compare/v0.0.9...0.1.0)
+[Full Changelog](https://github.com/buildlyio/buildly-ui-react/compare/0.0.10...0.1.0)
 
 **Implemented enhancements:**
 
@@ -36,6 +38,7 @@
 **Merged pull requests:**
 
 - Fix redirect \#67 [\#70](https://github.com/buildlyio/buildly-ui-react/pull/70) ([andrewshortall](https://github.com/andrewshortall))
+- Add logic modules view [\#66](https://github.com/buildlyio/buildly-ui-react/pull/66) ([andrewshortall](https://github.com/andrewshortall))
 - Allowed users to be assigned multiple roles [\#65](https://github.com/buildlyio/buildly-ui-react/pull/65) ([andrewshortall](https://github.com/andrewshortall))
 - Bump file-loader from 3.0.1 to 4.2.0 [\#64](https://github.com/buildlyio/buildly-ui-react/pull/64) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump babel-jest from 23.6.0 to 24.9.0 [\#63](https://github.com/buildlyio/buildly-ui-react/pull/63) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
@@ -44,45 +47,62 @@
 - Update README to use new template [\#60](https://github.com/buildlyio/buildly-ui-react/pull/60) ([jefmoura](https://github.com/jefmoura))
 - Update Travis file to build docker image and push to registry [\#51](https://github.com/buildlyio/buildly-ui-react/pull/51) ([jefmoura](https://github.com/jefmoura))
 - Add travis yaml configuration [\#50](https://github.com/buildlyio/buildly-ui-react/pull/50) ([jefmoura](https://github.com/jefmoura))
+- Staging [\#49](https://github.com/buildlyio/buildly-ui-react/pull/49) ([mughees-Ilyas](https://github.com/mughees-Ilyas))
 
-## [v0.0.9](https://github.com/buildlyio/buildly-ui-react/tree/v0.0.9) (2019-07-11)
-[Full Changelog](https://github.com/buildlyio/buildly-ui-react/compare/0.0.8...v0.0.9)
+## [0.0.10](https://github.com/buildlyio/buildly-ui-react/tree/0.0.10) (2019-07-11)
+[Full Changelog](https://github.com/buildlyio/buildly-ui-react/compare/0.0.9...0.0.10)
 
 **Merged pull requests:**
 
-- Staging [\#49](https://github.com/buildlyio/buildly-ui-react/pull/49) ([mughees-Ilyas](https://github.com/mughees-Ilyas))
 - adding screenshots [\#48](https://github.com/buildlyio/buildly-ui-react/pull/48) ([mughees-Ilyas](https://github.com/mughees-Ilyas))
 - updating readme [\#47](https://github.com/buildlyio/buildly-ui-react/pull/47) ([mughees-Ilyas](https://github.com/mughees-Ilyas))
 - upgrading gulp script [\#46](https://github.com/buildlyio/buildly-ui-react/pull/46) ([mughees-Ilyas](https://github.com/mughees-Ilyas))
 
-## [0.0.8](https://github.com/buildlyio/buildly-ui-react/tree/0.0.8) (2019-07-04)
-[Full Changelog](https://github.com/buildlyio/buildly-ui-react/compare/v0.0.6...0.0.8)
+## [0.0.9](https://github.com/buildlyio/buildly-ui-react/tree/0.0.9) (2019-07-04)
+[Full Changelog](https://github.com/buildlyio/buildly-ui-react/compare/0.0.8...0.0.9)
 
 **Merged pull requests:**
 
 - merge Staging for monorepo changes [\#44](https://github.com/buildlyio/buildly-ui-react/pull/44) ([mughees-Ilyas](https://github.com/mughees-Ilyas))
 - Monorepo [\#43](https://github.com/buildlyio/buildly-ui-react/pull/43) ([mughees-Ilyas](https://github.com/mughees-Ilyas))
+
+## [0.0.8](https://github.com/buildlyio/buildly-ui-react/tree/0.0.8) (2019-06-28)
+[Full Changelog](https://github.com/buildlyio/buildly-ui-react/compare/0.0.7...0.0.8)
+
+**Merged pull requests:**
+
 - Staging [\#42](https://github.com/buildlyio/buildly-ui-react/pull/42) ([mughees-Ilyas](https://github.com/mughees-Ilyas))
 - Crud model [\#41](https://github.com/buildlyio/buildly-ui-react/pull/41) ([mughees-Ilyas](https://github.com/mughees-Ilyas))
+
+## [0.0.7](https://github.com/buildlyio/buildly-ui-react/tree/0.0.7) (2019-06-11)
+[Full Changelog](https://github.com/buildlyio/buildly-ui-react/compare/0.0.6...0.0.7)
+
+**Merged pull requests:**
+
 - Fix/client crashes [\#40](https://github.com/buildlyio/buildly-ui-react/pull/40) ([mughees-Ilyas](https://github.com/mughees-Ilyas))
+
+## [0.0.6](https://github.com/buildlyio/buildly-ui-react/tree/0.0.6) (2019-06-05)
+[Full Changelog](https://github.com/buildlyio/buildly-ui-react/compare/0.0.5...0.0.6)
+
+**Merged pull requests:**
+
 - fix register redirect [\#39](https://github.com/buildlyio/buildly-ui-react/pull/39) ([mughees-Ilyas](https://github.com/mughees-Ilyas))
 - Inline group name [\#38](https://github.com/buildlyio/buildly-ui-react/pull/38) ([mughees-Ilyas](https://github.com/mughees-Ilyas))
 - add model [\#37](https://github.com/buildlyio/buildly-ui-react/pull/37) ([mughees-Ilyas](https://github.com/mughees-Ilyas))
 - permissions for core groups [\#36](https://github.com/buildlyio/buildly-ui-react/pull/36) ([mughees-Ilyas](https://github.com/mughees-Ilyas))
 
-## [v0.0.6](https://github.com/buildlyio/buildly-ui-react/tree/v0.0.6) (2019-05-28)
-[Full Changelog](https://github.com/buildlyio/buildly-ui-react/compare/v0.0.5...v0.0.6)
+## [0.0.5](https://github.com/buildlyio/buildly-ui-react/tree/0.0.5) (2019-05-28)
+[Full Changelog](https://github.com/buildlyio/buildly-ui-react/compare/0.0.4...0.0.5)
 
-## [v0.0.5](https://github.com/buildlyio/buildly-ui-react/tree/v0.0.5) (2019-05-28)
-[Full Changelog](https://github.com/buildlyio/buildly-ui-react/compare/v0.0.4...v0.0.5)
+## [0.0.4](https://github.com/buildlyio/buildly-ui-react/tree/0.0.4) (2019-05-28)
+[Full Changelog](https://github.com/buildlyio/buildly-ui-react/compare/0.0.3...0.0.4)
 
 **Merged pull requests:**
 
 - Subnav [\#35](https://github.com/buildlyio/buildly-ui-react/pull/35) ([andrewshortall](https://github.com/andrewshortall))
-- Added user management, create content switcher PLAT-402 [\#30](https://github.com/buildlyio/buildly-ui-react/pull/30) ([andrewshortall](https://github.com/andrewshortall))
 
-## [v0.0.4](https://github.com/buildlyio/buildly-ui-react/tree/v0.0.4) (2019-05-22)
-[Full Changelog](https://github.com/buildlyio/buildly-ui-react/compare/v0.0.3...v0.0.4)
+## [0.0.3](https://github.com/buildlyio/buildly-ui-react/tree/0.0.3) (2019-05-22)
+[Full Changelog](https://github.com/buildlyio/buildly-ui-react/compare/0.0.2...0.0.3)
 
 **Merged pull requests:**
 
@@ -90,9 +110,10 @@
 - adding invite screen for user [\#33](https://github.com/buildlyio/buildly-ui-react/pull/33) ([mughees-Ilyas](https://github.com/mughees-Ilyas))
 - Use freyja [\#32](https://github.com/buildlyio/buildly-ui-react/pull/32) ([andrewshortall](https://github.com/andrewshortall))
 - Test coverage [\#31](https://github.com/buildlyio/buildly-ui-react/pull/31) ([mughees-Ilyas](https://github.com/mughees-Ilyas))
+- Added user management, create content switcher PLAT-402 [\#30](https://github.com/buildlyio/buildly-ui-react/pull/30) ([andrewshortall](https://github.com/andrewshortall))
 
-## [v0.0.3](https://github.com/buildlyio/buildly-ui-react/tree/v0.0.3) (2019-05-14)
-[Full Changelog](https://github.com/buildlyio/buildly-ui-react/compare/v0.0.1...v0.0.3)
+## [0.0.2](https://github.com/buildlyio/buildly-ui-react/tree/0.0.2) (2019-05-14)
+[Full Changelog](https://github.com/buildlyio/buildly-ui-react/compare/0.0.1...0.0.2)
 
 **Merged pull requests:**
 
@@ -102,7 +123,7 @@
 - running init should not throw errors [\#26](https://github.com/buildlyio/buildly-ui-react/pull/26) ([mughees-Ilyas](https://github.com/mughees-Ilyas))
 - delete rules for gulps [\#25](https://github.com/buildlyio/buildly-ui-react/pull/25) ([mughees-Ilyas](https://github.com/mughees-Ilyas))
 
-## [v0.0.1](https://github.com/buildlyio/buildly-ui-react/tree/v0.0.1) (2019-05-06)
+## [0.0.1](https://github.com/buildlyio/buildly-ui-react/tree/0.0.1) (2019-05-06)
 **Merged pull requests:**
 
 - Fix name [\#24](https://github.com/buildlyio/buildly-ui-react/pull/24) ([andrewshortall](https://github.com/andrewshortall))
