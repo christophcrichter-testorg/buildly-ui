@@ -52,7 +52,7 @@ $ yarn run test
 ## Deployment
 
 To deploy Buildly UI on live, you can either use our [Buildly UI Docker image](https://hub.docker.com/r/buildly/buildly-ui) from Docker Hub or build your own image and host it somewhere, so it can be used with your deployment platform and/or tool.
-[Humanitec](https://humanitec.com) and Walhall is our preffered platform to deploy Buildly UI on live system.
+
 
 ### Build Docker image
 
